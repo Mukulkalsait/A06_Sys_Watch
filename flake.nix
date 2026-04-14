@@ -41,8 +41,8 @@
         dockerImage =
           pkgs.dockerTools.buildImage
             {
-              name = "SysWatch";
-              tag = "latest";
+              name = "syswatch-img";
+              tag = "v1.1";
 
               copyToRoot = pkgs.buildEnv {
                 name = "image-root";
