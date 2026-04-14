@@ -5,3 +5,5 @@ edition = "2024"
 
 [dependencies]
 sysinfo = "0.38.3"
+serde = "1.0.228"
+
