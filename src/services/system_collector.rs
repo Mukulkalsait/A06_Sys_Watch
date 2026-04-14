@@ -17,6 +17,17 @@ pub fn collect_system_stats() -> SystemStats {
     }
 }
 
+pub fn print_data() {
+    let stats = collect_system_stats();
+    let divider: u64 = 1024 * 1024;
+
+    println!("------------SystemStats------------");
+    println!("CPU usage: {}%", stats.cpu_usage);
+    println!("Memory Usage: {} /{} mb", stats.memory_usage / &divider, stats.memory_total / &divider);
+    println!("Processes: {}", stats.process_count);
+    println!("Uptime: {}sec", stats.uptime);
+}
+
 // use std::io::Cursor;
 // use sysinfo::{Component, Cpu, Disk, NetworkData, System};
 //
