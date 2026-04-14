@@ -11,11 +11,10 @@
 /// - uptime
 pub struct SystemStats {
     pub cpu_usage: f32,
-    pub memory_usage: f64,
-    pub memory_total: f64,
-    pub disk_usage: f64,
-    pub disk_total: f64,
-    pub process_count:usize,
-    pub uptime:u64,
+    pub memory_usage: u64,
+    pub memory_total: u64,
+    // pub disk_usage: f64,
+    // pub disk_total: f64,
+    pub process_count: usize,
+    pub uptime: u64,
 }
-
