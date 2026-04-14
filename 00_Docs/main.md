@@ -41,3 +41,9 @@ formatter.rs
    ↓
 terminal output
 ```
+
+```rs
+fn useme(){
+
+}
+```
