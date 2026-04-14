@@ -2,21 +2,32 @@
 // - Read: cpu, memory, disk,
 // - Count: processes.
 
-use sysinfo::{Component, Cpu, Disk, NetworkData, System};
+use crate::models::system_stats::SystemStats;
+use sysinfo::System;
 
-pub fn main() {
-    let mut sys = System::new_all();
+pub fn collect_system_stats() -> SystemStats {
+    let mut sys = System::new();
     sys.refresh_all();
-
-    pub fn abdc() {
-        loop {
-            println!();
-        }
+    SystemStats {
+        cpu_usage: sys.global_cpu_usage(),
+        memory_usage: sys.used_memory(),
+        memory_total: sys.total_memory(),
+        process_count: sys.processes().len(),
+        uptime: System::uptime(),
     }
-
-    println!("=============| SYSTEM |=============");
-    println!("Total Mem: {}", sys.total_memory());
-    println!("Used Mem: {}", sys.used_memory());
-    println!("Processes: {}", sys.processes().len());
-    println!("CPU cores: {}", sys.cpus().len());
 }
+
+// use std::io::Cursor;
+// use sysinfo::{Component, Cpu, Disk, NetworkData, System};
+//
+// pub fn main() {
+//     let mut sys = System::new_all();
+//     sys.refresh_all();
+//
+//     println!("=============| SYSTEM |=============");
+//     println!("Total Mem: {}", sys.total_memory());
+//     println!("Used Mem: {}", sys.used_memory());
+//     println!("Processes: {}", sys.processes().len());
+//     println!("CPU cores: {}", sys.cpus().len());
+//     println!("GPU Usage: {}", sys.global_cpu_usage());
+// }
